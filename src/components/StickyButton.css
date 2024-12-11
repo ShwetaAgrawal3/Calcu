@@ -1,0 +1,32 @@
+.sticky-button-container {
+  display: flex;
+  gap: 10px; /* Add space between buttons */
+  position: fixed;
+  top: 120px; 
+  left: 20px; 
+  z-index: 1000;
+  flex-direction: column;
+  height: 100px;
+
+}
+
+.sticky-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #18509d;
+  width: 220px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 5px 0px 5px;
+}
+
+.sticky-button:last-child {
+  margin-right: 0; 
+}
+
+.sticky-button:hover {
+  background-color: #0056b3;
+}

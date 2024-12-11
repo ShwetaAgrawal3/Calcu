@@ -1,0 +1,125 @@
+import React from 'react';
+import { render, waitFor } from '@testing-library/react';
+import Calculator from './Calculator';
+import CEComponent from './CEComponent';
+import StorageComponent from './StorageComponent';
+import DBComponent from './DBComponent';
+
+jest.mock('./CEComponent', () => jest.fn(() => <div>CEComponent</div>));
+jest.mock('./StorageComponent', () => jest.fn(() => <div>StorageComponent</div>));
+jest.mock('./DBComponent', () => jest.fn(() => <div>DBComponent</div>));
+
+describe('Calculator', () => {
+  const defaultProps = {
+    ceNumNodes: 1,
+    ceNumClusters: 1,
+    ceCrit: 1.0,
+    ceSizeNodes: 0,
+    ceBootDiskSize: 0,
+    storageType: 0,
+    storageVolume: 0,
+    storageClassA: 0,
+    storageClassB: 0,
+    storageRegionEgress: 0,
+    storageInetEgress: 0,
+    storageFileBackup: 0,
+    storageBlockSnapshot: 0,
+    dbType: 0,
+    dbSize: 0,
+    dbMysqlNetEgress: 0,
+    dbMysqlInetEgress: 0,
+    dbNosqlReads: 0,
+    dbNosqlWrites: 0,
+    dbNosqlDocs: 0,
+    dbNosqlNetEgress: 0,
+    dbNosqlInetEgress: 0,
+    dbBDRegionEgress: 0,
+    dbBDInetEgress: 0,
+  };
+
+  const renderCalculatorWithSelectedProducts = (selectedProducts) => {
+    sessionStorage.setItem('selectedProducts', JSON.stringify(selectedProducts));
+    return render(<Calculator />);
+  };
+
+  test('passes props correctly to CEComponent', async () => {
+    renderCalculatorWithSelectedProducts(['CEComponent']);
+    await waitFor(() => {
+      expect(CEComponent).toHaveBeenCalledWith(
+        expect.objectContaining({
+          ceNumNodes: defaultProps.ceNumNodes,
+          ceNumClusters: defaultProps.ceNumClusters,
+          ceCrit: defaultProps.ceCrit,
+          ceSizeNodes: defaultProps.ceSizeNodes,
+          ceBootDiskSize: defaultProps.ceBootDiskSize,
+          handleCeNumNodesChange: expect.any(Function),
+          handleNumClustersChange: expect.any(Function),
+          handleCritChange: expect.any(Function),
+          handleSizeNodesChange: expect.any(Function),
+          handleBootDiskSizeChange: expect.any(Function),
+        }),
+        {}
+      );
+    });
+  });
+
+  test('passes props correctly to StorageComponent', async () => {
+    renderCalculatorWithSelectedProducts(['StorageComponent']);
+    await waitFor(() => {
+      expect(StorageComponent).toHaveBeenCalledWith(
+        expect.objectContaining({
+          storageType: defaultProps.storageType,
+          storageVolume: defaultProps.storageVolume,
+          storageClassA: defaultProps.storageClassA,
+          storageClassB: defaultProps.storageClassB,
+          storageRegionEgress: defaultProps.storageRegionEgress,
+          storageInetEgress: defaultProps.storageInetEgress,
+          storageFileBackup: defaultProps.storageFileBackup,
+          storageBlockSnapshot: defaultProps.storageBlockSnapshot,
+          handleStorageTypeChange: expect.any(Function),
+          handleStorageVolumeChange: expect.any(Function),
+          handleStorageClassAChange: expect.any(Function),
+          handleStorageClassBChange: expect.any(Function),
+          handleStorageRegionEgressChange: expect.any(Function),
+          handleStorageInetEgressChange: expect.any(Function),
+          handleStorageFileBackupChange: expect.any(Function),
+          handleStorageBlockSnapshot: expect.any(Function),
+        }),
+        {}
+      );
+    });
+  });
+
+  test('passes props correctly to DBComponent', async () => {
+    renderCalculatorWithSelectedProducts(['DBComponent']);
+    await waitFor(() => {
+      expect(DBComponent).toHaveBeenCalledWith(
+        expect.objectContaining({
+          dbType: defaultProps.dbType,
+          dbSize: defaultProps.dbSize,
+          dbMysqlNetEgress: defaultProps.dbMysqlNetEgress,
+          dbMysqlInetEgress: defaultProps.dbMysqlInetEgress,
+          dbNosqlReads: defaultProps.dbNosqlReads,
+          dbNosqlWrites: defaultProps.dbNosqlWrites,
+          dbNosqlDocs: defaultProps.dbNosqlDocs,
+          dbNosqlNetEgress: defaultProps.dbNosqlNetEgress,
+          dbNosqlInetEgress: defaultProps.dbNosqlInetEgress,
+          dbBDRegionEgress: defaultProps.dbBDRegionEgress,
+          dbBDInetEgress: defaultProps.dbBDInetEgress,
+          handleDbTypeChange: expect.any(Function),
+          handleDbSizeChange: expect.any(Function),
+          handleDbMysqlNetEgressChange: expect.any(Function),
+          handleDbMysqlInetEgressChange: expect.any(Function),
+          handleDbNosqlReadsChange: expect.any(Function),
+          handleDbNosqlWritesChange: expect.any(Function),
+          handleDbNosqlDocsChange: expect.any(Function),
+          handleDbNosqlNetEgressChange: expect.any(Function),
+          handleDbNosqlInetEgressChange: expect.any(Function),
+          handleDbBDRegionEgressChange: expect.any(Function),
+          handleDbBDInetEgressChange: expect.any(Function),
+        }),
+        {}
+      );
+    });
+  });
+});

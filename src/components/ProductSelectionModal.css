@@ -1,0 +1,101 @@
+/* Ensure the modal overlay covers the entire screen */
+.tile-modal-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.tile-modal {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    max-width: 800px; /* Set a maximum width for the modal */
+    width: 90%; /* Make the modal responsive */
+    max-height: 90%; /* Ensure the modal doesn't exceed the viewport height */
+    overflow-y: auto; /* Add scroll if content overflows */
+}
+
+.tile-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Create a grid with 3 columns */
+    gap: 20px; /* Increase the gap between tiles */
+}
+
+.tile-button {
+    padding: 20px 40px; /* Make the tiles bigger */
+    font-size: 18px; /* Increase the font size */
+    background-color: grey; /* Default grey color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center; /* Center the text */
+}
+
+.tile-button.selected {
+    background-color: green; /* Green color when selected */
+}
+
+.tile-button:hover {
+    background-color: rgb(52, 190, 33); /* Darker grey on hover */
+}
+
+.submit-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: darkblue;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #000;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .tile-buttons {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+    }
+
+    .tile-button {
+        padding: 15px 30px; /* Adjust padding for smaller screens */
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .tile-buttons {
+        grid-template-columns: 1fr; /* 1 column on very small screens */
+    }
+
+    .tile-button {
+        padding: 10px 20px; /* Adjust padding for very small screens */
+        font-size: 14px; /* Adjust font size for very small screens */
+    }
+}

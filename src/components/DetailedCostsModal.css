@@ -1,0 +1,117 @@
+.modal-overlay {
+  position: fixed;
+  top: 85px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 5px;
+  width: auto; /* Make the width dynamic */
+  max-width: 90%; /* Ensure it doesn't exceed the viewport width */
+  max-height: 90%; /* Ensure it doesn't exceed the viewport height */
+  overflow-y: auto; /* Add scroll if content overflows */
+  position: relative;
+  padding-top: 0px;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+}
+
+.modal-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px; /* Add some space below the table */
+}
+
+.modal-content table th,
+.modal-content table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.modal-content table tr:not(:first-child):nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.modal-content table tr:not(:first-child):nth-child(odd) {
+  background-color: white;
+}
+
+.modal-content button {
+  padding: 5px 10px;
+  background: none;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.left-align {
+  text-align: left;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #000;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  position: relative;
+  top: 115px; /* Reset top position */
+  right: 0px; /* Reset right position */
+}
+
+.slider {
+  margin-right: 10px;
+  width: 200px; /* Adjust the width of the slider */
+  height: 5px; /* Adjust the height of the slider */
+  background: #ddd; /* Background color of the slider */
+  border-radius: 5px; /* Rounded corners */
+  outline: none; /* Remove outline */
+  -webkit-appearance: none; /* Remove default appearance in WebKit browsers */
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Remove default appearance in WebKit browsers */
+  appearance: none;
+  width: 15px; /* Width of the thumb */
+  height: 15px; /* Height of the thumb */
+  background: #0f6d23; /* Color of the thumb */
+  border-radius: 50%; /* Rounded thumb */
+  cursor: pointer; /* Cursor style */
+}
+
+.slider::-moz-range-thumb {
+  width: 15px; /* Width of the thumb */
+  height: 15px; /* Height of the thumb */
+  background: #056b27; /* Color of the thumb */
+  border-radius: 50%; /* Rounded thumb */
+  cursor: pointer; /* Cursor style */
+}
+
+.slider-value {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-left: 0px; /* Space between slider and text */
+  color: #000000; /* Color of the text */
+}

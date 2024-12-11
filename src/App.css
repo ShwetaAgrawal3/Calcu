@@ -1,0 +1,9 @@
+/* App.css */
+.App {
+  text-align: center;
+  background-color: #282828;
+}
+
+.content {
+  padding-top: 100px; /* Adjust this value based on the new height of your banner */
+}

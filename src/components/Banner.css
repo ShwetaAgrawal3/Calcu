@@ -1,0 +1,63 @@
+.banner {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #007c43;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed; /* Fix the banner to the top */
+  top: 0; /* Position it at the top */
+  width: 100%; /* Ensure it spans the full width of the viewport */
+  z-index: 1000; /* Ensure it stays on top of other elements */
+  height: 70px; /* Set the height of the banner */
+  margin: 0 auto;
+}
+
+.text-left {
+  margin-right: 0; /* Remove space between text and image */
+  font-size: 16px; /* Adjust the font size to make the text smaller */
+  color: white; /* Ensure the text color contrasts with the background */
+  text-transform: uppercase; /* Ensure the text is in lowercase */
+}
+
+.logo-left img {
+  height: 40px;
+  width: auto;
+}
+
+.buttons-right {
+  display: flex;
+  gap: 10px;
+  padding-right: 30px; /* Add padding to the right */
+}
+
+.buttons-right button {
+  background-color: white;
+  color: #007c43;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-size: 16px; /* Increased font size */
+  padding: 10px 20px; /* Increased padding */
+}
+
+.buttons-right button:hover {
+  background-color: #218838;
+  color: white;
+  border: 2px solid #218838;
+}
+
+/* Media queries for different screen sizes */
+@media (max-width: 1680px) {
+  .banner {
+    padding: 8px 16px; /* Adjust padding for HD screens */
+  }
+
+  .buttons-right {
+    padding-right: 20px; /* Adjust padding for HD screens */
+  }
+
+  .buttons-right button {
+    font-size: 15px; /* Adjust font size for HD screens */
+    padding: 8px 16px; /* Adjust padding for HD screens */
+  }
+}

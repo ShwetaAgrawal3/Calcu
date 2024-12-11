@@ -1,0 +1,96 @@
+.calculator-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px; /* Set a max-width for the container */
+  margin: 0 auto;
+  padding-top: 40px; /* Add padding to the top */
+  padding-left: 170px;
+}
+
+.input-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the left */
+  margin-right: 20px;
+  min-width: 300px; /* Set a minimum width for the input section */
+  max-width: 400px; /* Set a maximum width for the input section */
+}
+
+.input-field {
+  width: 100%; /* Ensure all input fields and dropdowns have the same width */
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid white;
+  border-radius: 5px;
+  text-align: left; /* Ensure input text is left-aligned */
+  margin-bottom: 10px; /* Add space between input fields */
+}
+
+.input-field:focus {
+  background-color: #62b34f;
+}
+
+.total-section {
+  position: fixed; /* Make the total section fixed */
+  top: 150px; /* Adjust this value as needed */
+  right: 200px; /* Adjust this value as needed */
+  width: 550px; /* Set a fixed width for the total section */
+  z-index: 900; /* Ensure it stays on top of other elements */
+  background-color: white; /* Ensure the background color matches the rest of the page */
+  padding: 50px; /* Optional: Add some padding */
+  padding-top: 0px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+  border-radius: 10px;
+}
+
+.total-section h2 {
+  text-align: center;
+}
+
+.total-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.total-section th, .total-section td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  word-wrap: break-word; /* Ensure long text wraps within the cell */
+}
+
+.total-section th {
+  width: 20%; /* Adjust the width of the columns as needed */
+}
+
+.total-section tr:nth-child(odd) {
+  background-color: white;
+}
+
+.total-section tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.grand-total {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #2c3e50; /* Customize the color as needed */
+}
+
+.change-value {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.change-value.positive {
+  color: #007c43;
+}
+
+.change-value.negative {
+  color: #ce143d;
+}

@@ -1,0 +1,26 @@
+.header-with-info {
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+    justify-content: flex-start; /* Ensure space between header and button */
+    width: 100%; /* Ensure the container takes full width */
+  }
+  
+  .info-button {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 16px;
+    line-height: 30px; /* Ensures the "i" is vertically centered */
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  
+  .info-button:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+  }

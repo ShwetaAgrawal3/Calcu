@@ -1,0 +1,99 @@
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import ProductSelectionModal from './ProductSelectionModal';
+
+// Mock the onClose and onProductToggle functions
+const onClose = jest.fn();
+const onProductToggle = jest.fn();
+
+describe('ProductSelectionModal Component', () => {
+  test('adding a single product renders it correctly', () => {
+    render(
+      <ProductSelectionModal
+        onClose={onClose}
+        onProductToggle={onProductToggle}
+        selectedProducts={[]}
+      />
+    );
+
+    // Select StorageComponent
+    const storageComponentButton = screen.getByText('Storage Component');
+    fireEvent.click(storageComponentButton);
+
+    // Submit the selection
+    const submitButton = screen.getByText('Submit');
+    fireEvent.click(submitButton);
+
+    // Check if onProductToggle was called with 'StorageComponent'
+    expect(onProductToggle).toHaveBeenCalledWith('StorageComponent');
+  });
+
+// TODO: Added future test for all products 
+//   test('adding all products renders them correctly', () => {
+//     render(
+//       <ProductSelectionModal
+//         onClose={onClose}
+//         onProductToggle={onProductToggle}
+//         selectedProducts={[]}
+//       />
+//     );
+
+//     // Select CEComponent, StorageComponent, and DBComponent
+//     const ceComponentButton = screen.getByText('CE Component');
+//     fireEvent.click(ceComponentButton);
+//     const storageComponentButton = screen.getByText('Storage Component');
+//     fireEvent.click(storageComponentButton);
+//     const dbComponentButton = screen.getByText('DB');
+//     fireEvent.click(dbComponentButton);
+
+//     // Submit the selection
+//     const submitButton = screen.getByText('Submit');
+//     fireEvent.click(submitButton);
+
+//     // Check if onProductToggle was called with all products
+//     const allProducts = [
+//       'CEComponent',
+//       'StorageComponent',
+//       'DBComponent'
+//     ];
+//     allProducts.forEach(product => {
+//       expect(onProductToggle).toHaveBeenCalledWith(product);
+//     });
+//   });
+
+//   test('adding all products renders them correctly', () => {
+//     render(
+//       <ProductSelectionModal
+//         onClose={onClose}
+//         onProductToggle={onProductToggle}
+//         selectedProducts={[]}
+//       />
+//     );
+
+//     // Select all products
+//     const productButtons = screen.getAllByRole('button', { name: /Component|Product/ });
+//     productButtons.forEach(button => fireEvent.click(button));
+
+//     // Submit the selection
+//     const submitButton = screen.getByText('Submit');
+//     fireEvent.click(submitButton);
+
+//     // Check if onProductToggle was called with all products
+//     const allProducts = [
+//       'CEComponent',
+//       'StorageComponent',
+//       'DBComponent',
+//       'Product3',
+//       'Product4',
+//       'Product5',
+//       'Product6',
+//       'Product7',
+//       'Product8'
+//     ];
+//     allProducts.forEach(product => {
+//       expect(onProductToggle).toHaveBeenCalledWith(product);
+//     });
+//   });
+
+});

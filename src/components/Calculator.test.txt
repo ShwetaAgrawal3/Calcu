@@ -1,0 +1,47 @@
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import Calculator from './Calculator';
+import DetailedCostsModal from './DetailedCostsModal';
+
+// Mock the DetailedCostsModal component
+jest.mock('./DetailedCostsModal', () => (props) => (
+  <div data-testid="detailed-costs-modal">
+    <button onClick={props.onClose}>Close</button>
+  </div>
+));
+
+describe('Calculator Component', () => {
+  test('clicking the Details button renders the DetailedCostsModal component', () => {
+    render(<Calculator />);
+
+    // Find and click the Details button
+    const detailsButton = screen.getByText('Details');
+    fireEvent.click(detailsButton);
+
+    // Check if the DetailedCostsModal component is rendered
+    const modal = screen.getByTestId('detailed-costs-modal');
+    expect(modal).toBeInTheDocument();
+  });
+});
+
+// Mock the ProductSelectionModal component
+jest.mock('./ProductSelectionModal', () => (props) => (
+  <div data-testid="product-selection-modal">
+    <button onClick={props.onClose}>Close</button>
+  </div>
+));
+
+describe('Calculator Component', () => {
+  test('clicking the Open Product Selection button renders the ProductSelectionModal component', () => {
+    render(<Calculator />);
+
+    // Find and click the Details button
+    const productSelectionButton = screen.getByText('Open Product Selection');
+    fireEvent.click(productSelectionButton);
+
+    // Check if the DetailedCostsModal component is rendered
+    const modal = screen.getByTestId('product-selection-modal');
+    expect(modal).toBeInTheDocument();
+  });
+});

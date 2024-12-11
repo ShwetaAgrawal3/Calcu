@@ -1,0 +1,75 @@
+.landing-page {
+  display: flex;
+  justify-content: space-between; /* Space between text and image */
+  align-items: flex-start; /* Align items to the top */
+  height: 100vh;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+.text-content {
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center text content vertically */
+  margin-top: 10%; /* Adjust this value to move text up or down */
+  text-align: left; /* Align text to the left */
+}
+
+.button-container {
+  display: flex;
+  gap: 20px;
+}
+
+.start-button, .add-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.start-button:hover, .add-button:hover {
+  background-color: #0056b3;
+}
+
+.image-content {
+  display: flex;
+  justify-content: flex-start; /* Move image slightly to the left */
+  align-items: center; /* Center image vertically */
+  flex-grow: 1; /* Ensure the image container takes remaining space */
+  height: 100%; /* Take full height of the container */
+}
+
+.small-hero-image {
+  width: 268px; /* Set specific width */
+  height: 300px; /* Set specific height */
+  object-fit: contain; /* Ensure image fits within the specified dimensions */
+  margin-left: -40px; /* Move image slightly to the left */
+}
+
+h1, h2, p {
+  margin: 0; /* Reset default margins */
+  text-align: left; /* Align text to the left */
+}
+
+h1 {
+  white-space: pre-line; /* Ensures that line breaks and whitespaces are respected */
+  margin-bottom: 30px; /* Add more space below the h1 element */
+}
+
+h1::after {
+  content: '\A pricing calculator';
+  white-space: pre; /* Forces the content after to appear on the next line */
+}
+
+h2 {
+  margin-top: 20px; /* Add more space above the h2 element */
+  margin-bottom: 10px; /* Add space below the h2 element */
+}
+
+p {
+  margin-top: 10px; /* Add more space above the paragraph */
+  margin-bottom: 20px; /* Add space below the paragraph */
+}

@@ -1,0 +1,39 @@
+import React from 'react';
+import { render, fireEvent } from '@testing-library/react';
+import DetailedCostsModal from './DetailedCostsModal';
+
+describe('DetailedCostsModal', () => {
+  const mockData = {
+    Product: {
+      ce_products: {
+        sizeNodes: { cost_with_uplift_excl_vat: 100, cost_vat_rate: 20, cost_incl_vat: 120 },
+        numClusters: { cost_with_uplift_excl_vat: 200, cost_vat_rate: 40, cost_incl_vat: 240 },
+        bootDiskSize: { cost_with_uplift_excl_vat: 300, cost_vat_rate: 60, cost_incl_vat: 360 },
+      },
+      storage_products: {
+        storageType: { cost_with_uplift_excl_vat: 400, cost_vat_rate: 80, cost_incl_vat: 480 },
+        storageVolume: { cost_with_uplift_excl_vat: 500, cost_vat_rate: 100, cost_incl_vat: 600 },
+      },
+      db_products: {
+        dbType: { cost_with_uplift_excl_vat: 600, cost_vat_rate: 120, cost_incl_vat: 720 },
+      },
+    },
+    grand_total: 1800,
+  };
+
+  const mockOnClose = jest.fn();
+
+  test('slider displays the correct value', () => {
+    const { getByRole, getByText } = render(<DetailedCostsModal data={mockData} onClose={mockOnClose} />);
+
+    // Check initial slider value
+    expect(getByText('1 month(s)')).toBeInTheDocument();
+
+    // Change slider value to 5
+    const slider = getByRole('slider');
+    fireEvent.change(slider, { target: { value: '5' } });
+
+    // Check updated slider value
+    expect(getByText('5 month(s)')).toBeInTheDocument();
+  });
+});
